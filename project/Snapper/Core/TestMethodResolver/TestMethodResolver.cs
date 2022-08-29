@@ -22,6 +22,7 @@ namespace Snapper.Core.TestMethodResolver
                 new NunitTheoryMethod(method, fileName),
                 new MSTestTestMethod(method, fileName),
                 new MSTestDataTestMethod(method, fileName),
+                new UnityTestFrameworkUnityTestMethod(method, fileName)
             };
 
         public ITestMethod ResolveTestMethod()

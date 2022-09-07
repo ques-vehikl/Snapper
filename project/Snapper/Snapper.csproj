@@ -32,4 +32,10 @@ See Project Site for more details</Description>
     <None Include="..\..\README.md" Pack="true" PackagePath="\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="UnityEngine">
+      <HintPath>..\..\UnityEngine.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

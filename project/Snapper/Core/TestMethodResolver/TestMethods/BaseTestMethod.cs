@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
@@ -18,6 +19,12 @@ namespace Snapper.Core.TestMethodResolver.TestMethods
         {
             try
             {
+                var customAttributes = BaseMethod?.CustomAttributes
+                    .Select(ca => ca.AttributeType.FullName);
+
+                var attributesList = customAttributes == null ? "NULL" : string.Join(", ", customAttributes);
+                throw new Exception($"Attributes for {BaseMethod?.Name}: <{attributesList}> that should contain {AttributeName}");
+                
                 var attribute = BaseMethod?.CustomAttributes.FirstOrDefault(a =>
                 {
                     var type = a.AttributeType;

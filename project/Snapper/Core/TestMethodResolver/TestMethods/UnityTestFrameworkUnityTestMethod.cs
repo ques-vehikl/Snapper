@@ -8,6 +8,6 @@ namespace Snapper.Core.TestMethodResolver.TestMethods
             : base(method, fileName)
         {}
 
-        protected override string AttributeName => "UnityTestFramework.UnityTestAttribute";
+        protected override string AttributeName => "UnityEngine.TestTools.UnityTestAttribute";
     }
 }

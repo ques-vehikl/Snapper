@@ -14,6 +14,7 @@ namespace Snapper.Core.TestMethodResolver
         private static IEnumerable<ITestMethod> GetTestMethods(MemberInfo method, string fileName)
             => new List<ITestMethod>
             {
+                new UnityTestFrameworkUnityTestMethod(method, fileName),
                 new XunitFactMethod(method, fileName),
                 new XunitTheoryMethod(method, fileName),
                 new NunitTestMethod(method, fileName),
@@ -21,8 +22,7 @@ namespace Snapper.Core.TestMethodResolver
                 new NunitTestCaseSourceMethod(method, fileName),
                 new NunitTheoryMethod(method, fileName),
                 new MSTestTestMethod(method, fileName),
-                new MSTestDataTestMethod(method, fileName),
-                new UnityTestFrameworkUnityTestMethod(method, fileName)
+                new MSTestDataTestMethod(method, fileName)
             };
 
         public ITestMethod ResolveTestMethod()
